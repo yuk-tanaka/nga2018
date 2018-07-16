@@ -15,4 +15,4 @@ Route::get('/', 'WebController@index')->name('index');
 Route::get('/shops', 'WebController@shops')->name('shops');
 Route::get('/shops/{shop}', 'WebController@showShop')->name('shops.show');
 Route::get('/favorites', 'WebController@favorites')->name('favorites');
-Route::get('/nearby', 'WebController@nearvy')->name('nearby');
+Route::get('/nearby', 'WebController@nearby')->name('nearby');

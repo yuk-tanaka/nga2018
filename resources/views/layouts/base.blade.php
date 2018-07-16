@@ -12,6 +12,10 @@
   <!--style-->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   @stack('styles')
+
+  @if(env('APP_ENV') === 'production'))
+    {!! Analytics::render() !!}
+  @endif
 </head>
 
 <body>

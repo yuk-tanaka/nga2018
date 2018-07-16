@@ -42,6 +42,7 @@ require('@fortawesome/fontawesome-free-brands');
 Vue.component('app-shop', require('./components/AppShop.vue'));
 Vue.component('app-shop-detail', require('./components/AppShopDetail.vue'));
 Vue.component('app-favorite', require('./components/AppFavorite.vue'));
+Vue.component('app-shop-nearby-current', require('./components/AppShopNearbyCurrent.vue'));
 
 const app = new Vue({
   el: '#app'

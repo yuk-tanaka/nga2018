@@ -51,18 +51,18 @@
     <!--近隣店舗-->
     <div>
       <h3 class="h5"><i class="fas fa-location-arrow"></i> 近隣の店舗情報</h3>
-      <shop-nearby-list :nearby-shops="nearbyShops"></shop-nearby-list>
+      <shop-nearby :nearby-shops="nearbyShops"></shop-nearby>
     </div>
   </div>
 </template>
 
 <script>
-  import ShopNearbyList from './ShopNearbyList';
+  import ShopNearby from './ShopNearby';
 
   export default {
     name: 'AppShopDetail',
     components: {
-      ShopNearbyList,
+      ShopNearby,
     },
     props: {
       fetchable: {type: Boolean},

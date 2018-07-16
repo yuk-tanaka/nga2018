@@ -1,6 +1,12 @@
 <template>
   <div>
-    todo 都市絞り込み
+    <el-checkbox-group v-model="checkedCities">
+      <el-checkbox-button v-for="city in cities"
+                          :label="city.id"
+                          :key="city.id">
+        {{city.name}}
+      </el-checkbox-button>
+    </el-checkbox-group>
     <GChart
         v-if="shops.length"
         :settings="{ packages: ['timeline'] }"
@@ -22,13 +28,16 @@
       GChart
     },
     props: {
+      favorites: {type: Array, default: null},
       searchable: {type: Boolean, default: false},
     },
     data: () => ({
+      cities: null,
+      checkedCities: [],
       header: ['地域', '店舗', '開店時間', '閉店時間'],
       shops: [],
       options: {
-        height: 800,
+        height: 600,
       },
       events: {
         select: () => {
@@ -36,19 +45,31 @@
       }
     }),
     watch: {
+      checkedCities: function (cities) {
+        this.$set(this, 'shops', []);
+        this.search(cities);
+      },
+      //タブ隠れている状態だとスタイルが崩れるので、タブ呼び出しごとに再描写する
       searchable: function (searchable) {
         if (searchable) {
-          this.search(null, null);
+          this.search(null);
         } else {
+          this.$set(this, 'checkedCities', []);
           this.$set(this, 'shops', []);
         }
       }
     },
+    created() {
+      const url = process.env.MIX_APP_URL + '/api/cities';
+      axios.get(url).then(response => {
+        this.cities = response.data.data;
+      });
+    },
     methods: {
-      search: function (cities, areas) {
+      search: function (cities) {
         const url = process.env.MIX_APP_URL + '/api/shops';
         axios.get(url, {
-          params: {favorites: this.favorites, cities: cities, areas: areas}
+          params: {favorites: this.favorites, cities: cities}
         }).then(response => {
           //g-chart timelineに整形
           this.shops.push(this.header);

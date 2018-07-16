@@ -18,13 +18,13 @@
 
 <script>
   import AppShopDetail from './AppShopDetail';
-  import ShopNearbyList from './ShopNearbyList';
+  import ShopNearby from './ShopNearby';
 
   export default {
     name: 'ShopDetailDialog',
     components: {
       AppShopDetail,
-      ShopNearbyList,
+      ShopNearby,
     },
     props: {
       shop: {type: Object, required: true},

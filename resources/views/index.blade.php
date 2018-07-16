@@ -1,5 +1,9 @@
 @extends('layouts.base')
 
+@section('title')
+  日本酒ゴーアラウンド非公式ポータル
+@endsection
+
 @section('body')
   <h1 class="h2">日本酒ゴーアラウンド非公式ポータル</h1>
 

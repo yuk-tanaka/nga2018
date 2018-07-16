@@ -3,8 +3,8 @@
     <b-row>
       <b-col xs="12" sm="6" md="6" lg="3" class="center-block" v-for="shop in nearbyShops" :key="shop.id">
         <h4 class="h5">
-        <a :href="shop.show_url"><b>{{shop.name}}</b></a>
-      </h4>
+          <a :href="shop.show_url"><b>{{shop.name}}</b></a>
+        </h4>
         <div class="list">
           <dl>
             <dt><i class="fas fa-glass-martini"></i></dt>
@@ -40,9 +40,10 @@
 
 <script>
   export default {
-    name: 'ShopNearbyList',
+    name: 'ShopNearby',
     props: {
       nearbyShops: {type: Array, required: true},
+      isShowDetail: {type: Boolean, default: false},
     },
   }
 </script>
