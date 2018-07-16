@@ -13,7 +13,7 @@
     <b-navbar-nav class="ml-auto">
       <b-nav-item href="//twitter.com/achel_b8" target="_blank" right><i class="fab fa-twitter"></i>
       </b-nav-item>
-      <b-nav-item href="" target="_blank" right><i class="fab fa-github"></i></b-nav-item>
+      <b-nav-item href="//github.com/beerGeekJp/nga2018" target="_blank" right><i class="fab fa-github"></i></b-nav-item>
     </b-navbar-nav>
   </b-collapse>
 </b-navbar>
